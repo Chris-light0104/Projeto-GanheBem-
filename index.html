@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GanheBem+</title>
+  <link rel="stylesheet" href="../css/index.css" />
+</head>
+<body>
+  <header>
+    <h1>GanheBem+</h1>
+    <nav>
+      <a href="#cadastro">Cadastro</a>
+      <a href="#login">Login</a>
+    </nav>
+  </header>
+
+  <section id="cadastro">
+    <h2>Cadastro de Estudante</h2>
+    <form id="cadastroForm">
+      <input type="text" placeholder="Nome completo" name="nome" required />
+      <input type="email" placeholder="E-mail institucional" name="email" required />
+      <input type="text" placeholder="Curso" name="curso" required />
+      <input type="text" placeholder="Período" name="periodo" required />
+      <input type="password" placeholder="Senha" name="senha" required />
+      <button type="submit">Cadastrar</button>
+    </form>
+  </section>
+
+  <section id="login">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="email" placeholder="E-mail institucional" name="email" required />
+      <input type="password" placeholder="Senha" name="senha" required />
+      <button type="submit">Entrar</button>
+    </form>
+  </section>
+
+  <section id="vagas" style="display: none;">
+    <h2>Oportunidades</h2>
+    <div id="listaVagas"></div>
+  </section>
+
+  <script src="../js/index.js"></script>
+</body>
+</html>
