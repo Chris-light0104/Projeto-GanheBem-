@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GanheBem+ - Oportunidades</title>
+  <link rel="stylesheet" href="../css/oportunidades.css" />
+</head>
+<body>
+  <header>
+    <h1>GanheBem+</h1>
+    <nav>
+      <a href="../html/ganhebem.html">Início</a>
+      <a href="../html/perfil.html">Perfil</a>
+      <a href="../html/feed.html">Feed</a>
+      <a href="#" onclick="logout()">Sair</a>
+    </nav>
+  </header>
+
+  <main>
+  <button id="toggleFormBtn">➕ Publicar nova vaga</button>
+
+  <section class="formulario-vaga" id="formVagaSection" style="display: none;">
+    <h2>Nova Oportunidade</h2>
+    <form id="vagaForm">
+      <input type="text" name="titulo" placeholder="Título da vaga" required />
+      <input type="text" name="empresa" placeholder="Empresa / Projeto" required />
+      <input type="text" name="tipo" placeholder="Tipo (estágio, freela...)" required />
+      <textarea name="descricao" placeholder="Descrição da vaga" required></textarea>
+      
+      <label class="checkbox-wrapper">
+  <input type="checkbox" id="remunerada" name="remunerada" />
+  <span>Vaga remunerada?</span>
+</label>
+
+
+      <input
+        type="number"
+        name="salario"
+        placeholder="Valor do salário (R$)"
+        id="salarioInput"
+        style="display: none;"
+      />
+
+      <button type="submit">Publicar vaga</button>
+    </form>
+  </section>
+
+  <section class="lista-vagas">
+    <h2>Vagas disponíveis</h2>
+    <div id="vagasContainer"></div>
+  </section>
+</main>
+
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggleFormBtn = document.getElementById("toggleFormBtn");
+    const formSection = document.getElementById("formVagaSection");
+    const vagaForm = document.getElementById("vagaForm");
+    const vagasContainer = document.getElementById("vagasContainer");
+    const remuneradaCheckbox = document.getElementById("remunerada");
+    const salarioInput = document.getElementById("salarioInput");
+
+    // Mostrar/ocultar campo salário
+    remuneradaCheckbox.addEventListener("change", () => {
+      salarioInput.style.display = remuneradaCheckbox.checked ? "block" : "none";
+    });
+
+    // Botão de abrir/fechar formulário
+    toggleFormBtn.addEventListener("click", () => {
+      formSection.style.display = formSection.style.display === "none" ? "block" : "none";
+    });
+
+    function carregarVagas() {
+      const vagas = JSON.parse(localStorage.getItem("vagas")) || [];
+      vagasContainer.innerHTML = "";
+      vagas.forEach((vaga) => {
+        const card = document.createElement("div");
+        card.className = "vaga-card";
+        card.innerHTML = `
+          <h3>${vaga.titulo}</h3>
+          <p><strong>Empresa:</strong> ${vaga.empresa}</p>
+          <p><strong>Tipo:</strong> ${vaga.tipo}</p>
+          <p>${vaga.descricao}</p>
+          <p><strong>Remuneração:</strong> ${vaga.remunerada ? `R$ ${vaga.salario}` : "Não remunerada"}</p>
+        `;
+        vagasContainer.appendChild(card);
+      });
+    }
+
+    vagaForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const formData = new FormData(vagaForm);
+      const novaVaga = {
+        titulo: formData.get("titulo"),
+        empresa: formData.get("empresa"),
+        tipo: formData.get("tipo"),
+        descricao: formData.get("descricao"),
+        remunerada: remuneradaCheckbox.checked,
+        salario: remuneradaCheckbox.checked ? formData.get("salario") : null,
+      };
+
+      const vagas = JSON.parse(localStorage.getItem("vagas")) || [];
+      vagas.unshift(novaVaga);
+      localStorage.setItem("vagas", JSON.stringify(vagas));
+      vagaForm.reset();
+      salarioInput.style.display = "none";
+      carregarVagas();
+    });
+
+    carregarVagas();
+  });
+
+  function logout() {
+    localStorage.removeItem("usuarioAtivo");
+    window.location.href = "../html/index.html";
+  }
+</script>
+
+</body>
+</html>

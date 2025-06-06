@@ -1,0 +1,76 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #eef1f5;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #0073b1;
+  margin-bottom: 25px;
+}
+
+#dadosPerfil {
+  max-width: 500px;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+}
+
+#dadosPerfil li {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  padding: 12px 16px;
+  font-size: 16px;
+}
+
+.voltar-btn {
+  display: inline-block;
+  margin-bottom: 20px;
+  background-color: #0073b1;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.voltar-btn:hover {
+  background-color: #005f90;
+}
+
+.foto-perfil-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.foto-perfil-container img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #0073b1;
+}
+
+#uploadFoto {
+  display: none;
+}
+
+.foto-perfil-container img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #0073b1;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.foto-perfil-container img:hover {
+  transform: scale(1.05);
+}
+

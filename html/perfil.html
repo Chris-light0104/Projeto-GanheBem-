@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meu Perfil</title>
+  <link rel="stylesheet" href="../css/perfil.css" />
+</head>
+<body>
+  <header class="top-nav">
+    <div class="container">
+      <nav>
+        <a href="../html/ganhebem.html" class="voltar-btn"> Voltar para o Painel</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" role="main" aria-label="Perfil do usuário">
+    <h1>Meu Perfil</h1>
+
+    <section class="profile">
+      <div class="foto-perfil-container">
+        <div class="foto-perfil-container">
+        <label for="uploadFoto">
+    <img id="fotoPerfil" src="../img/default-user.png" alt="Foto de Perfil" />
+  </label>
+  <input type="file" id="uploadFoto" accept="image/*" aria-label="Upload de foto de perfil" />
+</div>
+
+      </div>
+
+      <ul id="dadosPerfil" class="dados-perfil-list" aria-live="polite" aria-relevant="additions"></ul>
+    </section>
+  </main>
+
+  <script src="../js/perfil.js"></script>
+</body>
+</html>
+

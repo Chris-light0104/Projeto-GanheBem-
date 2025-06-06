@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Feed - GanheBem+</title>
+  <link rel="stylesheet" href="../css/feed.css" />
+</head>
+<body>
+
+  <a href="../html/ganhebem.html" class="voltar-btn">Voltar para o Painel</a>
+
+  <h1>Feed da Comunidade</h1>
+  <div id="conteudoFeed"></div>
+
+  <script>
+    const usuario = JSON.parse(localStorage.getItem('usuarioAtivo'));
+    if (!usuario) {
+      window.location.href = "../html/index.html";
+    }
+
+    const posts = [
+      { autor: "Joana", mensagem: "Consegui um freela através do GanheBem+!" },
+      { autor: "Carlos", mensagem: "Nova vaga postada para Administração!" }
+    ];
+
+    const container = document.getElementById("conteudoFeed");
+    posts.forEach(post => {
+      const p = document.createElement("p");
+      p.innerHTML = `<strong>${post.autor}</strong>: ${post.mensagem}`;
+      container.appendChild(p);
+    });
+  </script>
+
+</body>
+</html>

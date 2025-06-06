@@ -1,0 +1,75 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  color: #0073b1;
+  margin-bottom: 20px;
+}
+
+#conteudoFeed {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+#conteudoFeed p {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 15px;
+}
+
+.voltar-btn {
+  display: inline-block;
+  margin-bottom: 20px;
+  background-color: #0073b1;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.voltar-btn:hover {
+  background-color: #005f90;
+}
+
+#postForm {
+  max-width: 700px;
+  margin: 0 auto 20px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#mensagemPost {
+  resize: vertical;
+  padding: 10px;
+  margin-bottom: 10px;
+  height: 80px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+#postForm button {
+  background-color: #0073b1;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#postForm button:hover {
+  background-color: #005f90;
+}
+

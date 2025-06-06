@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GanheBem+</title>
+  <link rel="stylesheet" href="../css/dashboard.css" />
+</head>
+<body>
+
+<h2 id="bemVindo">Bem-vindo!</h2>
+<script>
+  const usuario = JSON.parse(localStorage.getItem('usuarioAtivo'));
+  if (!usuario) {
+    window.location.href = '../html/index.html'; // redireciona se não estiver logado
+  } else {
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('bemVindo').textContent = `Bem-vindo, ${usuario.nome}`;
+    });
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+  const botaoSair = document.getElementById('btnSair');
+  if (botaoSair) {
+    botaoSair.addEventListener('click', (e) => {
+      e.preventDefault(); // Impede o comportamento padrão do link
+      localStorage.removeItem('usuarioAtivo');
+      window.location.href = 'index.html';
+    });
+  }
+});
+
+</script>
+
+  <header>
+    <h1>GanheBem+</h1>
+    <nav>
+  <a href="#" id="btnSair">Sair</a>
+</nav>
+  </header>
+
+  <main>
+    <section class="welcome">
+      <h2>Bem-vindo ao GanheBem+</h2>
+      <p>Aqui você encontra oportunidades, compartilha experiências e se conecta com o mercado.</p>
+    </section>
+
+    <section id="painel-opcoes">
+  <a href="../html/oportunidades.html">
+    <div class="card">
+      <h3>📝 Oportunidades</h3>
+      <p>Veja estágios, freelas e vagas disponíveis.</p>
+    </div>
+  </a>
+  <a href="../html/feed.html">
+    <div class="card">
+      <h3>📣 Feed</h3>
+      <p>Confira atualizações e conteúdos da comunidade.</p>
+    </div>
+  </a>
+  <a href="../html/perfil.html">
+    <div class="card">
+      <h3>👤 Perfil</h3>
+      <p>Edite suas informações e veja suas inscrições.</p>
+    </div>
+  </a>
+</section>
+
+  </main>
+
+  <script>
+    function logout() {
+      alert("Você saiu do sistema.");
+      window.location.href = "../html/index.html";
+    }
+  </script>
+</body>
+</html>
